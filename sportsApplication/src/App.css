@@ -2,18 +2,19 @@
   text-align: center;
 }
 
-.App-logo {
+.App-logo { /* Here Rony need to make adjusments to different sites of screens*/
   margin-bottom: 10px;
   height: 40vmin;
   pointer-events: none;
   z-index: 10;
+  margin-bottom: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} 
 
 .App-header {
   background-color: #282c34;
@@ -29,10 +30,13 @@
   z-index: 15;
 }
 
-
-.App-link {
-  color: #61dafb;
+.MainHeader{
+  margin-bottom: 75px;
 }
+
+/* .App-link {
+  color: #61dafb;
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -47,7 +51,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px; /* Add margin between the two sections */
+  margin-top: 20px; 
 }
 
 .vertical {
@@ -55,13 +59,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 10px; /* Add margin around each section */
+  margin: 0 10px; 
 }
 
-.container {
-  position: relative; /* Create a relative positioning context for absolute positioning */
-  height: 100vh;
-}
+
 
 .soccer-field {
   height: 100%;
