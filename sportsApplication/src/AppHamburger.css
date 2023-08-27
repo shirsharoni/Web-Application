@@ -1,0 +1,38 @@
+.App-hamburger {
+  top: 0vh;
+  width: 100%;
+  height: 7%; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  top: 2.0vh;
+  display: flex;
+  position: absolute;
+  font-size: 1.5rem;
+  z-index: 9;
+}
+
+#note1 {
+  left: 167vh;
+}
+
+#note2 {
+  left: 172vh;
+}
+
+#note3 {
+  left: 177vh;
+}
+#note4 {
+  left: 182vh;
+}
+#note5 {
+  left: 187vh;
+}

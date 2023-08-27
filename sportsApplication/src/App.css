@@ -1,0 +1,90 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  margin-bottom: 10px;
+  height: 40vmin;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(40px + 2vmin);
+  color: white;
+  position: static;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  z-index: 15;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Add margin between the two sections */
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px; /* Add margin around each section */
+}
+
+.container {
+  position: relative; /* Create a relative positioning context for absolute positioning */
+  height: 100vh;
+}
+
+.soccer-field {
+  height: 100%;
+  /* width: 100%; */
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  /*מפה הוספתי*/
+  position: absolute; /* Position this element absolutely within the container */
+  top: 0; /* Adjust the top position as needed */
+  left: 0; /* Adjust the left position as needed */
+}
+
+.basketball-field {
+  height: 100%;
+  /* width: 100%; */
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
