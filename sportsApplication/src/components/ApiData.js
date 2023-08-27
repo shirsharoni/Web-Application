@@ -37,4 +37,3 @@ export function useAppData() {
   }, []);
   return { data, error, isLoading };
 }
-// export { useAppData };

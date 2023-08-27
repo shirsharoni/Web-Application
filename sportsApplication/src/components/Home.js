@@ -36,7 +36,7 @@ function App() {
       <header className="App-header">
         <p>
           Hey {data.first_name}!<br />
-          are you good enough to join our team?
+          ready to join our team?
         </p>
         <img src={hamburger} className="App-hamburger" alt="hamburger" />
         <ul>

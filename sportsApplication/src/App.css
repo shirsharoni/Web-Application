@@ -25,10 +25,9 @@
   font-size: calc(40px + 2vmin);
   color: white;
   position: static;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  font-family: "Lucida Console", "Courier New", monospace;
   z-index: 15;
 }
-
 
 .App-link {
   color: #61dafb;
