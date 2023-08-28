@@ -5,6 +5,8 @@ import bodyParser from "body-parser";
 import cron from "node-cron"; 
 
 
+
+
 const app = express();
 const port = 4000;
 const ComeetApiToken =
@@ -154,10 +156,18 @@ app.get("/WSCandidates/:uid", async (req, res) => {
       }
     }
 
-    const positionName = await getPositionName(candidateDataBeforeMerge.position_uid);
-    candidateDataBeforeMerge.position_name = positionName;
+  
     const candidateDataAfterUpdate = updateStatus(candidateDataBeforeMerge);
     const candidateData = mergeSteps(candidateDataAfterUpdate);
+
+    const positionUid = candidateData.position_uid;
+    const positionName = await getPositionName(positionUid);
+
+    candidateData.steps = candidateData.steps.map((step) => ({
+      ...step,
+      position_name: positionName,
+    }));
+    
 
 
     // Send the candidate information as a JSON response
