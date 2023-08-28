@@ -1,8 +1,6 @@
-/* import '.\components\SoccerPage.js' */
-
 .PopUp {
   z-index: 10;
-  background-color: #93b0e0;
+  background-color: #5fc7de;
   width: 600px;
   height: 600px;
   position: fixed;
@@ -11,33 +9,53 @@
   transform: translate(-50%, -50%);
   color: white;
   border-radius: 15%;
+  border: 7px solid white;
 }
-
-.close-button {
+.button {
   position: absolute;
   top: 2vh;
-  right: 3vw;
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-  width: auto;
-  height: 30px;
+  right: 2.5vw;
+  border: 1.5px solid white;
 }
+
+.btn-link-left {
+  float: left;
+  margin-left: 6%; /* Adjusted the margin to align with other content */
+}
+.icons-container {
+  position: absolute;
+  bottom: 20px; /* Adjust the distance from the bottom */
+  left: 20px; /* Adjust the distance from the left */
+  display: flex;
+}
+
+.icon-link {
+  margin-right: 10px; /* Adjust spacing between the icons */
+  font-size: 2em;
+}
+
 h1 {
   text-align: center;
-  margin-top: 12%;
+  text-align: center;
+  font-family: "Goudy Bookletter 1911", sans-serif;
+  color: white;
+  margin-top: 8%;
+  margin-bottom: 3%;
+  font-weight: bold;
 }
+
 h2 {
   margin-left: 6%;
+  font-family: "system-ui";
 }
 p {
   font-size: 20px;
   margin-left: 6%;
+  font-family: "system-ui";
 }
-div > close-button {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
+
 ul {
   margin-left: 6%;
+  /* font-family: "Lucida Console", "Courier New", monospace; */
+  font-family: "system-ui";
 }

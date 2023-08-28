@@ -31,18 +31,22 @@
   left: 50vw;
 }
 .player-container:nth-child(4) {
-  top: 36vh;
-  left: 32vw;
+  top: 37vh;
+  left: 35vw;
 }
 .player-container:nth-child(5) {
   top: 36vh;
-  left: 20vw;
+  left: 22vw;
 }
 .player-container:nth-child(6) {
   top: 36vh;
-  left: 5vw;
+  left: 10vw;
 }
 .player-container:nth-child(7) {
+  top: 36vh;
+  left: 5vw;
+}
+.player-container:nth-child(8) {
   top: 36vh;
   left: 0vw;
 }
