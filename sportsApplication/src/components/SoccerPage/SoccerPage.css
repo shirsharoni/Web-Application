@@ -1,0 +1,48 @@
+#soccer-page {
+  position: relative;
+}
+
+.player-container {
+  position: absolute;
+  margin: 10px;
+  width: 200px;
+}
+
+.player-container img {
+  width: auto;
+  height: 200px;
+}
+
+.player-container:hover .PopUp {
+  display: block;
+}
+
+.player-container:nth-child(1) {
+  top: 36vh;
+  left: 80vw;
+}
+
+.player-container:nth-child(2) {
+  top: 36vh;
+  left: 65vw;
+}
+.player-container:nth-child(3) {
+  top: 36vh;
+  left: 50vw;
+}
+.player-container:nth-child(4) {
+  top: 36vh;
+  left: 32vw;
+}
+.player-container:nth-child(5) {
+  top: 36vh;
+  left: 20vw;
+}
+.player-container:nth-child(6) {
+  top: 36vh;
+  left: 5vw;
+}
+.player-container:nth-child(7) {
+  top: 36vh;
+  left: 0vw;
+}

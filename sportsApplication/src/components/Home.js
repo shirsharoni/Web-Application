@@ -12,7 +12,6 @@ fontAwesomeScript.src = "https://kit.fontawesome.com/62897f86fd.js";
 fontAwesomeScript.crossOrigin = "anonymous";
 document.head.appendChild(fontAwesomeScript);
 
-
 function App() {
   const { id } = useParams();
   const { data, error, isLoading } = useAppData();
