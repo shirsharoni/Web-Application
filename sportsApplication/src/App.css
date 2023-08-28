@@ -3,10 +3,12 @@
 }
 
 .App-logo {
+  /* Here Rony need to make adjusments to different sites of screens*/
   margin-bottom: 10px;
   height: 40vmin;
   pointer-events: none;
   z-index: 10;
+  margin-bottom: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -29,6 +31,10 @@
   z-index: 15;
 }
 
+.MainHeader {
+  margin-bottom: 75px;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -46,7 +52,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px; /* Add margin between the two sections */
+  margin-top: 20px;
 }
 
 .vertical {
@@ -54,12 +60,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 10px; /* Add margin around each section */
-}
-
-.container {
-  position: relative; /* Create a relative positioning context for absolute positioning */
-  height: 100vh;
+  margin: 0 10px;
 }
 
 .soccer-field {

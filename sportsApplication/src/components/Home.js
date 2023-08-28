@@ -4,18 +4,18 @@ import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import soccer from "../soccer.svg";
 import basketball from "../basketball.svg";
-import hamburger from "../hamburger/hamburger.png";
 import "../App.css";
-import "../AppHamburger.css";
-// import './ApiData.js'
 import { useAppData } from "./ApiData.js";
+import HomeNavbar from "./navbar";
 const fontAwesomeScript = document.createElement("script");
 fontAwesomeScript.src = "https://kit.fontawesome.com/62897f86fd.js";
 fontAwesomeScript.crossOrigin = "anonymous";
 document.head.appendChild(fontAwesomeScript);
+
 function App() {
   const { id } = useParams();
   const { data, error, isLoading } = useAppData();
+
   function goToSoccer() {
     console.log("go to soccer");
     window.location = `/soccer/${id}`;
@@ -33,58 +33,12 @@ function App() {
   }
   return (
     <div className="App">
+      <HomeNavbar />
       <header className="App-header">
-        <p>
+        <h1 className="MainHeader">
           Hey {data.first_name}!<br />
-          ready to join our team?
-        </p>
-        <img src={hamburger} className="App-hamburger" alt="hamburger" />
-        <ul>
-          <li className="linkList" id="note1">
-            <a
-              href="https://www.linkedin.com/company/wsc-sports-technologies/"
-              target="_blank"
-            >
-              <span style={{ color: "white" }}>
-                <i aria-hidden="true" class="fab fa-linkedin"></i>
-              </span>
-            </a>
-          </li>
-          <li className="linkList" id="note2">
-            <a href="https://twitter.com/wsc_sports" target="_blank">
-              <span class="elementor-icon-list-icon" style={{ color: "white" }}>
-                <i aria-hidden="true" class="fab fa-twitter"></i>
-              </span>
-            </a>
-          </li>
-          <li className="linkList" id="note3">
-            <a href="https://www.instagram.com/wsc_sports/" target="_blank">
-              <span class="elementor-icon-list-icon" style={{ color: "white" }}>
-                <i aria-hidden="true" class="fab fa-instagram"></i>
-              </span>
-            </a>
-          </li>
-          <li className="linkList" id="note4">
-            <a
-              href="https://www.facebook.com/WSC.SportsTechnologies/"
-              target="_blank"
-            >
-              <span class="elementor-icon-list-icon" style={{ color: "white" }}>
-                <i aria-hidden="true" class="fab fa-facebook"></i>
-              </span>
-            </a>
-          </li>
-          <li className="linkList" id="note5">
-            <a
-              href="https://sports-content-kings.simplecast.com/"
-              target="_blank"
-            >
-              <span class="elementor-icon-list-icon" style={{ color: "white" }}>
-                <i aria-hidden="true" class="fas fa-microphone-alt"></i>
-              </span>
-            </a>
-          </li>
-        </ul>
+          Are you ready to join our team?
+        </h1>
         <div class="horizontal">
           <div class="vertical">
             <img src={soccer} className="App-logo" alt="logo" />

@@ -2,7 +2,8 @@ import express from "express";
 import axios from "axios";
 import cors from "cors";
 import bodyParser from "body-parser";
-import cron from "node-cron"; // Import the node-cron library
+import cron from "node-cron"; 
+
 
 const app = express();
 const port = 4000;
@@ -166,68 +167,43 @@ cron.schedule("*/5 * * * *", async () => {
     const candidates = response.data.candidates;
 
     for (const candidate of candidates) {
-      if (candidate.email === null) {
-        // 'custom_fields.portalUrl' === null (new candidate with no url)
-        console.log(
-          `Candidate with UID ${candidate.uid} has a null email. Updating email...`
-        );
-        //     the real request:
-        //     try {
-        //       await axios.patch(`https://api.comeet.co/candidates/${candidate.uid}`, JSON.stringify({
-        //         updated_by: {
-        //           type: 'app',
-        //           name: 'WSC-combine'
-        //         },
-        //         "custom_fields": {
-        //            "portalUrl": "http://localhost:4000/WSCandidates/{uid}"
-        //          }
-        //       }), {
-        //         headers: {
-        //           'Content-Type': 'application/json', // Set content type to JSON
-        //           Authorization: `Bearer ${ComeetApiToken}`
-        //         }
-        //       });
-        //       console.log(`portalURL updated for candidate ${candidate.uid}`);
-        //     } catch (error) {
-        //       console.error(`Error updating portalURL for candidate ${candidate.uid}: ${error.message}`);
-        //     }
-        //   }
-        // }
+      if (candidate.deleted === false) {
+      
+        //console.log(` ${candidate.uid} in the loop`);
 
-        // } catch (error) {
-        //   console.error("Error fetching candidate list:", error);
-        // }
-        // });
+        const customFieldsIsEmpty = Object.keys(candidate.custom_fields).length === 0;
 
-        try {
-          await axios.patch(
-            `https://api.comeet.co/candidates/${candidate.uid}`,
-            JSON.stringify({
-              updated_by: {
-                type: "app",
-                name: "WSC-combine",
-              },
-              email: "shirIsAwsome@gmail.com",
-            }),
-            {
-              headers: {
-                "Content-Type": "application/json", // Set content type to JSON
-                Authorization: `Bearer ${ComeetApiToken}`,
-              },
+        if (customFieldsIsEmpty) {
+          // 'custom_fields' === null (new candidate with no url)
+          console.log(
+            `Candidate with UID ${candidate.uid} has a null portalUrl. Updating portalUrl...`
+          );
+          try {
+              await axios.patch(`https://api.comeet.co/candidates/${candidate.uid}`, JSON.stringify({
+                updated_by: {
+                  type: 'app',
+                  name: 'WSC-combine'
+                },
+                "custom_fields": {
+                    "portalUrl": `http://localhost:4000/WSCandidates/${candidate.uid}`
+                  }
+              }), {
+                headers: {
+                  'Content-Type': 'application/json', // Set content type to JSON
+                  Authorization: `Bearer ${ComeetApiToken}`
+                }
+              });
+              console.log(`portalURL updated for candidate ${candidate.uid}`);
+            } catch (error) {
+              console.error(`Error updating portalURL for candidate ${candidate.uid}: ${error.message}`);
             }
-          );
-          console.log(`Email updated for candidate ${candidate.uid}`);
-        } catch (error) {
-          console.error(
-            `Error updating email for candidate ${candidate.uid}: ${error.message}`
-          );
+          }
         }
       }
-    }
-  } catch (error) {
-    console.error("Error fetching candidate list:", error);
-  }
-});
+      } catch (error) {
+        console.error("Error fetching candidate list:", error);
+      }
+      });
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
