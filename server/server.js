@@ -121,30 +121,7 @@ app.get("/WSCandidates/:uid", async (req, res) => {
       }
       return candidateData;
     }
-<<<<<<< HEAD
 
-    async function getPositionName(positionUid) {
-      try {
-        const response = await axios.get(`https://api.comeet.co/positions/${positionUid}`, {
-          headers: {
-            Authorization: `Bearer ${ComeetApiToken}`,
-          },
-        });
-        return response.data.name; // Assuming the position name is present in the response
-      } catch (error) {
-        console.error(`Error fetching position name for UID ${positionUid}:`, error);
-        return null;
-      }
-    }
-
-  
-    const candidateDataAfterUpdate = updateStatus(candidateDataBeforeMerge);
-    const candidateData = mergeSteps(candidateDataAfterUpdate);
-
-    const positionUid = candidateData.position_uid;
-    const positionName = await getPositionName(positionUid);
-
-=======
     async function getPositionName(positionUid) {
       try {
         const response = await axios.get(
@@ -168,17 +145,12 @@ app.get("/WSCandidates/:uid", async (req, res) => {
     const candidateData = mergeSteps(candidateDataAfterUpdate);
     const positionUid = candidateData.position_uid;
     const positionName = await getPositionName(positionUid);
->>>>>>> 2551aeff9e66a426a1a11ae8af2f552ffb769339
+  
     candidateData.steps = candidateData.steps.map((step) => ({
       ...step,
       position_name: positionName,
     }));
-<<<<<<< HEAD
-    
 
-
-=======
->>>>>>> 2551aeff9e66a426a1a11ae8af2f552ffb769339
     // Send the candidate information as a JSON response
     res.json(candidateData);
     // const candidateData = response.data;
