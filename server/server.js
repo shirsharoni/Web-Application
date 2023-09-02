@@ -2,7 +2,29 @@ import express from "express";
 import axios from "axios";
 import cors from "cors";
 import bodyParser from "body-parser";
-import cron from "node-cron"; 
+import cron from "node-cron";
+import fs from "fs/promises";
+import crypto from "crypto";
+
+const key = process.env.ENCRYPTION_KEY || "secret";
+const algorithm = process.env.ENCRYPTION_ALGORITHM || 'aes256';
+const inputEncoding = process.env.ENCRYPTION_INPUT_ENCODING || 'utf8';
+const outputEncoding = process.env.ENCRYPTION_OUTPUT_ENCODING || 'hex';
+
+function encrypt(value, useKey = key) {
+  var cipher = crypto.createCipher(algorithm, key);
+  var encrypted = cipher.update(value, inputEncoding, outputEncoding);
+  encrypted += cipher.final(outputEncoding)
+  return encrypted
+}
+
+function decrypt(encrypted, useKey = key) {
+  var decipher = crypto.createDecipher(algorithm, key);
+  var decrypted = decipher.update(encrypted, outputEncoding, inputEncoding)
+  decrypted += decipher.final(inputEncoding)
+  return decrypted
+}
+
 
 const app = express();
 const port = 4000;
@@ -18,7 +40,7 @@ app.get("/WSCandidates/:uid", async (req, res) => {
   const uid = req.params.uid;
   try {
     const response = await axios.get(
-      `https://api.comeet.co/candidates/${uid}`,
+      `https://api.comeet.co/candidates/${decrypt(uid)}`,
       {
         headers: {
           Authorization: `Bearer ${ComeetApiToken}`,
@@ -160,6 +182,7 @@ app.get("/WSCandidates/:uid", async (req, res) => {
     res.status(404).json({ error: "Candidate not found" });
   }
 });
+
 // Schedule a task to run every 5 minutes
 cron.schedule("*/5 * * * *", async () => {
   try {
@@ -176,7 +199,7 @@ cron.schedule("*/5 * * * *", async () => {
         const customFieldsIsEmpty =
           Object.keys(candidate.custom_fields).length === 0;
         if (customFieldsIsEmpty) {
-          // 'custom_fields' === null (new candidate with no url)
+          //'custom_fields' === null (new candidate with no url)
           console.log(
             `Candidate with UID ${candidate.uid} has a null portalUrl. Updating portalUrl...`
           );
@@ -189,7 +212,7 @@ cron.schedule("*/5 * * * *", async () => {
                   name: "WSC-combine",
                 },
                 custom_fields: {
-                  portalUrl: `http://localhost:4000/WSCandidates/${candidate.uid}`,
+                  portalUrl: `http://localhost:3000/${encrypt(candidate.uid)}`,
                 },
               }),
               {
@@ -204,7 +227,7 @@ cron.schedule("*/5 * * * *", async () => {
             console.error(
               `Error updating portalURL for candidate ${candidate.uid}: ${error.message}`
             );
-          }
+         }
         }
       }
     }
@@ -212,6 +235,114 @@ cron.schedule("*/5 * * * *", async () => {
     console.error("Error fetching candidate list:", error);
   }
 });
+
+// Define a function to fetch and process candidates
+async function getAllRefferalCandidates() {
+    // Fetch the candidate list from Comeet API
+    const response = await axios.get("https://api.comeet.co/candidates", {
+      headers: {
+        Authorization: `Bearer ${ComeetApiToken}`,
+      },
+    });
+    return response.data.candidates.filter((candidate) => !candidate.deleted && candidate?.source?.type === "Referrer: Compensated");
+}
+
+async function getNotificationAudit() {
+  const fileContent = await fs.readFile("candidates.json", "utf8");
+  return JSON.parse(fileContent);
+}
+
+const filterCandidatesToNotify = (notificationAudit, candidatesArr) => candidatesArr.filter((candidate) => ((candidate?.current_steps != undefined && (notificationAudit[candidate.uid] != candidate.current_steps[0].position_step_uid) ) && candidate.current_steps[0].time_scheduled != null))
+
+
+async function getUserIdByEmail(email) {
+  try {
+    const slackToken = 'xoxb-5828413229749-5844534318449-nYJhp9vWQrO5cOoNGq8qTdg9'; // Replace with your Slack API token
+
+    const response = await axios.post(
+      'https://slack.com/api/users.lookupByEmail',
+      `email=${encodeURIComponent(email)}`, // Encode the email
+      {
+        headers: {
+          Authorization: `Bearer ${slackToken}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+    );
+
+    if (response.data.ok) {
+      return response.data.user.id;
+    } else {
+      throw new Error(`Error looking up user by email: ${response.data.error}`);
+    }
+  } catch (error) {
+    console.error('Error getting user ID by email:', error.message);
+    throw error; // Re-throw the error for handling at a higher level if needed
+  }
+}
+
+
+
+async function notifyAndAudit(candidate) {
+  const message = `notify candidate ${candidate.first_name} to ${candidate.source.name}`;
+  console.log(message);
+
+  const slackToken = 'xoxb-5828413229749-5844534318449-nYJhp9vWQrO5cOoNGq8qTdg9';
+
+  // Retrieve user ID by email
+  const userId = await getUserIdByEmail('Ronyavivi0@gmail.com');
+  
+  if (userId) {
+    // Send message to the user with the obtained user ID
+    try {
+
+      const response = await axios.post(
+        'https://slack.com/api/chat.postMessage',
+        {
+          channel: userId,
+          text: message,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${slackToken}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      // Check if the message was sent successfully
+      if (response.data.ok) {
+        console.log('Message sent successfully to Slack');
+      } else {
+        console.error('Failed to send message to Slack:', response.data.error);
+      }
+    } catch (error) {
+      console.error('Error sending message to Slack:', error.message);
+    }
+  }
+  const notificationAudit = await getNotificationAudit();
+  notificationAudit[candidate.uid] = candidate.current_steps[0].position_step_uid;
+
+  // Assuming you have defined 'fs' somewhere in your code.
+  await fs.writeFile('candidates.json', JSON.stringify(notificationAudit), 'utf8');
+}
+
+
+// Schedule a task to run every minute
+cron.schedule('*/5 * * * *', async () => {
+// async function x() {
+  console.log('starting check')
+  const refferalCandidates = await getAllRefferalCandidates()
+  // console.log(refferalCandidates)
+  const notificationAudit = await getNotificationAudit()
+  // console.log(notificationAudit)
+  const candidateToTofity = filterCandidatesToNotify(notificationAudit, refferalCandidates)
+  // console.log(candidateToTofity)
+  for (const candidate of candidateToTofity) {
+    await notifyAndAudit(candidate)
+  }
+})
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
