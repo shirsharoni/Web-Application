@@ -3,11 +3,19 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import DarkMode from "./toggle/DarkMode";
+// import { onToggleTheme } from "./toggle/DarkMode"
 
 function HomeNavbar() {
+  // const [backgroundColor, setBackgroundColor] = useState("beige"); // Add background color state
+  // const handleToggleTheme = (isDarkMode) => {
+  //   // Update the background color based on the theme
+  //   setBackgroundColor(isDarkMode ? "lightgreen" : "beige");
+  // };
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
+      {/* <DarkMode onToggleTheme={handleToggleTheme} /> */}
+
         <Container>
           <Navbar.Brand href="https://wsc-sports.com/" target="_blank">
             <img
@@ -58,7 +66,7 @@ function HomeNavbar() {
               </span>
             </Nav.Link>
           </Nav>
-          <Nav className="justify-content-end">{/* <DarkMode /> */}</Nav>
+          {/* <Nav className="justify-content-end"><DarkMode /></Nav> */}
         </Container>
       </Navbar>
     </>

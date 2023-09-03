@@ -36,6 +36,23 @@ function SoccerPage() {
   if (selectedPlayerIndex === null) {
     setSelectedPlayerIndex(currentIndex);
   }
+ 
+
+
+
+
+  function generateCirclesWithSteps(steps) {
+    return steps.map((step, index) => (
+      <Col key={index}>
+        <div
+          className={`circular`}
+          onClick={() => handleCircleClick(index)}
+        >
+          <span className="ball_num">{index + 1}</span>
+        </div>
+      </Col>
+    ));
+  }
 
   function handleCircleClick(index) {
     setSelectedPlayerIndex(index); // Update selected player index when a circle is clicked
