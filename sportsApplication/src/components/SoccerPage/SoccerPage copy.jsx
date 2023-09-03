@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import { useAppData } from "../ApiData.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../App.css";
-import "../../AppHamburger.css";
+// import "../../AppHamburger.css";
 import "../../PopUp.css";
 import "./SoccerPage.css";
+import { PlayerPopup } from "./PlayerPopup.js";
 import HomeNavbar from "../navbar";
 import DarkMode from "../toggle/DarkMode.js";
 
@@ -22,11 +23,11 @@ function SoccerPage() {
   const { data, error, isLoading } = useAppData(id);
   const [isPopUpVisible, setPopUpVisible] = useState(false);
   const [popupId, setPopUpId] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState("beige"); // Add background color state
+  const [backgroundColor, setBackgroundColor] = useState("orange"); // Add background color state
 
   const handleToggleTheme = (isDarkMode) => {
     // Update the background color based on the theme
-    setBackgroundColor(isDarkMode ? "lightgreen" : "beige");
+    setBackgroundColor(isDarkMode ? "black" : "orange");
   };
 
   if (isLoading) {
@@ -36,27 +37,60 @@ function SoccerPage() {
     return <div>Error: {error}</div>;
   }
   const numOfPlayers = data ? data.steps.length : 0;
+
+  // const togglePopUp = (i) => {
+  //   setPopUpVisible(!isPopUpVisible);
+  //   setPopUpId(i);
+  // };
+
+  // const renderPlayers = (num) => {
+  //   const players = [];
+
+  //   for (let i = 0; i < num; i++) {
+  //     const player = data.steps[i];
+  //     players.push(
+  //       <div className={`player-container`} key={i}>
+  //         <img
+  //           className={`overlay-image_${i + 1}`}
+  //           src={`/soccer-players/Soccer_player${i + 1}.png`}
+  //           alt={`soccer-player${i + 1}`}
+  //           width="100%"
+  //           onClick={() => togglePopUp(i)}
+  //         />
+  //         {isPopUpVisible && i === popupId && (
+  //           <PlayerPopup togglePopUp={() => togglePopUp(i)} player={player} />
+  //         )}
+  //       </div>
+  //     );
+  //   }
+  //   return players;
+  // };
   return (
     <>
       <div className="soccerPageContainer" style={{ backgroundColor }}>
         <HomeNavbar />
-        <DarkMode onToggleTheme={handleToggleTheme} />
-        <div className="container container-soccer d-flex flex-column vh-100">
+        <div class="container container-soccer d-flex flex-column vh-100">
           <div id="h1">{data.position_name}</div>
           <div id="h2">
             {data.first_name} {data.last_name}
           </div>
-          <div className="inner-container">
-            <div className="circular"></div>
+          <div class="inner-container">
+            <div class="circular"></div>
+
+            {/* <Container className="soccer-comtainer"> */}
+            {/* <div id="soccer-page"> */}
+            {/* {renderPlayers(numOfPlayers)} */}
+            {/* </div> */}
+            {/* </Container> */}
           </div>
           <div>
             <div id="p">
               {" "}
-              <span className="interview_header">Current Step:</span>{" "}
+              <span class="interview_header">Current Step:</span>{" "}
               {getCurrentStepName(data.steps)} <br />
-              <span className="interview_header">Interviewers:</span>{" "}
+              <span class="interview_header">Interviewers:</span>{" "}
               {getCurrentStepAssignees(data.steps)} <br />
-              <span className="interview_header">Time Scheduled:</span>{" "}
+              <span class="interview_header">Time Scheduled:</span>{" "}
               {formatTime(
                 getCurrentStepAssigneesAndTimeScheduled(data.steps)
                   .timeScheduled

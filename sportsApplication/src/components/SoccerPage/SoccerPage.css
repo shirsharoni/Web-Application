@@ -3,54 +3,59 @@
 } */
 
 .circular {
-  position:static;
+  position: static;
   width: 70px; /* Set the width and height to control the size of the circle */
   height: 70px;
   background-color: white; /* Set the background color for the circle */
   border-radius: 50%; /* Use border-radius with 50% value for a circle */
 }
 
-
-#h1{
+#h1 {
   font-size: 42px;
   text-align: center;
   color: black;
 }
 
-#h2{
+#h2 {
   text-align: center;
   font-size: 30px;
-
 }
 
-.interview_header{
+.interview_header {
   font-weight: bold;
 }
 
-#p{
+#p {
   padding: 0px 50px;
   color: black;
 }
 
-.soccerPageContainer{
+.soccerPageContainer {
+  background-color: beige;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: orange;
   width: 100%;
-  /* height: 100vh; */
 }
 
-.container-soccer{
+/* Add conditional background colors */
+.soccerPageContainer.light {
+  background-color: beige;
+}
+
+.soccerPageContainer.dark {
+  background-color: lightgreen;
+}
+
+.container-soccer {
   background-color: white;
   padding: 0px 0px;
 }
 
-.inner-container{
+.inner-container {
   background-color: green;
   height: 150px; /* Fixed height */
   width: auto;
-
 }
 
 /* .soccer-comtainer{
@@ -60,8 +65,7 @@
 .player-container {
   /* position: fixed; */
   margin: 10px;
-  width: 200px; 
-
+  width: 200px;
 }
 
 .player-container img {
@@ -105,4 +109,4 @@
 .player-container:nth-child(8) {
   top: 36vh;
   left: 0vw;
-} 
+}
