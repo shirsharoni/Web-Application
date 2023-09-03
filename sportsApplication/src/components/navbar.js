@@ -1,14 +1,24 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
+import DarkMode from "./toggle/DarkMode";
+ 
 function HomeNavbar() {
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="https://wsc-sports.com/" target="_blank">WSC Sports</Navbar.Brand>
-          <Nav className="justify-content-end">
+          <Navbar.Brand href="https://wsc-sports.com/" target="_blank"> 
+          <img
+            alt=""
+            src="/logo.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{' '}
+          WSC Sports
+          </Navbar.Brand>
+          <Nav className="me-auto">
             <Nav.Link href="https://www.linkedin.com/company/wsc-sports-technologies/" target="_blank">
                 <span style={{ color: "white" }}>
                     <i aria-hidden="true" class="fab fa-linkedin"></i>
@@ -35,6 +45,7 @@ function HomeNavbar() {
             </span>
             </Nav.Link>
           </Nav>
+          <Nav className="justify-content-end"><DarkMode/></Nav>
         </Container>
       </Navbar>
     </>

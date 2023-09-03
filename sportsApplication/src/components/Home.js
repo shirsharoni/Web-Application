@@ -11,7 +11,6 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Button from "react-bootstrap/Button";
-
 const fontAwesomeScript = document.createElement("script");
 fontAwesomeScript.src = "https://kit.fontawesome.com/62897f86fd.js";
 fontAwesomeScript.crossOrigin = "anonymous";

@@ -168,10 +168,7 @@ app.get("/WSCandidates/:uid", async (req, res) => {
     const positionUid = candidateData.position_uid;
     const positionName = await getPositionName(positionUid);
   
-    candidateData.steps = candidateData.steps.map((step) => ({
-      ...step,
-      position_name: positionName,
-    }));
+    candidateData.position_name = positionName;
 
     // Send the candidate information as a JSON response
     res.json(candidateData);

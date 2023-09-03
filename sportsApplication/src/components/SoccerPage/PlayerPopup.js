@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import DarkMode from "../toggle/DarkMode";
 
 export function PlayerPopup({ togglePopUp, player }) {
   return (
@@ -69,6 +70,7 @@ export function PlayerPopup({ togglePopUp, player }) {
           </span>
         </a>
       </div>
+      <DarkMode/>
     </div>
   );
 }
