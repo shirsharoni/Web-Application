@@ -1,5 +1,7 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import DarkMode from "../toggle/DarkMode";
 
 export function PlayerPopup({ togglePopUp, player }) {
   return (
@@ -57,8 +59,8 @@ export function PlayerPopup({ togglePopUp, player }) {
             flexDirection: "column",
             alignItems: "center",
             position: "absolute",
-            bottom: "20px", // Adjust the distance from the bottom
-            right: "80px", // Adjust the distance from the right
+            bottom: "20px",
+            right: "80px",
           }}
         >
           <span style={{ padding: ".25rem .5rem", fontSize: "1.75rem" }}>
@@ -66,6 +68,7 @@ export function PlayerPopup({ togglePopUp, player }) {
           </span>
         </a>
       </Modal.Body>
+      <DarkMode />
     </Modal>
   );
 }
