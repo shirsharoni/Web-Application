@@ -13,7 +13,7 @@ export function PlayerPopup({ togglePopUp, player }) {
       <h1>Interview Information</h1>
       <div>
         <h2>For which position?</h2>
-        <p>{player.position_name}</p>
+        {/* <p>{player.position_name}</p> */}
         <h2>With whom?</h2>
         <ul>
           {player.assignees.map((assignee, index) => (
