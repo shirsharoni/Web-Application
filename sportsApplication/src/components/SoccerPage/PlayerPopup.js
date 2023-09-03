@@ -1,16 +1,13 @@
-import { Button } from "react-bootstrap";
+import React from "react";
+import { Modal } from "react-bootstrap";
 
 export function PlayerPopup({ togglePopUp, player }) {
   return (
-    <div className="PopUp">
-      <button
-        type="button"
-        className="button btn-close"
-        aria-label="Close"
-        onClick={togglePopUp}
-      ></button>
-      <h1>Interview Information</h1>
-      <div>
+    <Modal show={true} onHide={togglePopUp} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>Interview Information</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
         <h2>For which position?</h2>
         <p>{player.position_name}</p>
         <h2>With whom?</h2>
@@ -43,8 +40,8 @@ export function PlayerPopup({ togglePopUp, player }) {
             flexDirection: "column",
             alignItems: "center",
             position: "absolute",
-            bottom: "20px", // Adjust the distance from the bottom
-            right: "20px", // Adjust the distance from the right
+            bottom: "20px",
+            right: "20px",
           }}
         >
           <span style={{ padding: ".25rem .5rem", fontSize: "1.75rem" }}>
@@ -68,7 +65,7 @@ export function PlayerPopup({ togglePopUp, player }) {
             <i className="fab fa-waze"></i>
           </span>
         </a>
-      </div>
-    </div>
+      </Modal.Body>
+    </Modal>
   );
 }
