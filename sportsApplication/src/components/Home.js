@@ -6,20 +6,18 @@ import basketball from "../basketball.svg";
 import "../App.css";
 import { useAppData } from "./ApiData.js";
 import HomeNavbar from "./navbar";
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 const fontAwesomeScript = document.createElement("script");
 fontAwesomeScript.src = "https://kit.fontawesome.com/62897f86fd.js";
 fontAwesomeScript.crossOrigin = "anonymous";
 document.head.appendChild(fontAwesomeScript);
-
 function App() {
   const { id } = useParams();
   const { data, error, isLoading } = useAppData();
-
   function goToSoccer() {
     console.log("go to soccer");
     window.location = `/soccer/${id}`;
@@ -28,7 +26,6 @@ function App() {
     console.log("go to basketball");
     window.location = `/basketball/${id}`;
   }
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -48,16 +45,22 @@ function App() {
             <Col xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
               <Row xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
                 <div className="mb-2">
-                  <Image src={soccer} className="App-logo" rounded /><br/>
-                  <Button onClick={goToSoccer} bsPrefix="btn" size="sm">Let's play soccer</Button>
+                  <Image src={soccer} className="App-logo" rounded />
+                  <br />
+                  <Button onClick={goToSoccer} bsPrefix="btn" size="sm">
+                    Let's play soccer
+                  </Button>
                 </div>
               </Row>
             </Col>
             <Col xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
               <Row xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
                 <div className="mb-2">
-                  <Image src={basketball} className="App-logo" rounded /><br/>
-                  <Button onClick={goToBasketball} size="sm">Let's play Basketball</Button>
+                  <Image src={basketball} className="App-logo" rounded />
+                  <br />
+                  <Button onClick={goToBasketball} size="sm">
+                    Let's play Basketball
+                  </Button>
                 </div>
               </Row>
             </Col>

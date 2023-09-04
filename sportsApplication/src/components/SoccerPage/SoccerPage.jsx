@@ -16,10 +16,10 @@ function SoccerPage() {
   const { id } = useParams();
   const { data, error, isLoading } = useAppData(id);
   const [selectedPlayerIndex, setSelectedPlayerIndex] = useState(null);
-  const [backgroundColor, setBackgroundColor] = useState("beige");
+  const [backgroundColor, setBackgroundColor] = useState("orange");
 
   const handleToggleTheme = (isDarkMode) => {
-    setBackgroundColor(isDarkMode ? "lightgreen" : "beige");
+    setBackgroundColor(isDarkMode ? "lightgreen" : "orange");
   };
 
   if (isLoading) {
@@ -44,8 +44,7 @@ function SoccerPage() {
   return (
     <>
       <div className="soccerPageContainer" style={{ backgroundColor }}>
-        <HomeNavbar />
-        <DarkMode onToggleTheme={handleToggleTheme} />
+        <HomeNavbar onToggleTheme={handleToggleTheme} />
         <div className="container container-soccer d-flex flex-column vh-100">
           <div id="h1">{data.position_name}</div>
           <div id="h2">

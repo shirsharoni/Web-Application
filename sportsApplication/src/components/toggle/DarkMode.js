@@ -1,12 +1,15 @@
-// DarkMode.js
 import React, { useState } from "react";
 import "./DarkMode.css";
+import basketSvg from "../../basketball.svg";
+import soccerSvg from "../../soccer.svg";
 
 const DarkMode = ({ onToggleTheme }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isBasketballActive, setIsBasketballActive] = useState(true);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
+    setIsBasketballActive(!isBasketballActive);
     onToggleTheme(!isDarkMode);
   };
 
@@ -20,7 +23,22 @@ const DarkMode = ({ onToggleTheme }) => {
         onChange={toggleTheme}
       />
       <label className="dark_mode_label" htmlFor="darkmode-toggle">
-        {/* You can add your sun/moon icons here */}
+        <div className="circle">
+          <div
+            className={`icon ${isBasketballActive ? "left" : "right"}`}
+            style={{
+              left: isBasketballActive ? "0" : "53%", // Adjust the left position
+              transition: "left 0.19s ease-in-out", // Add a transition
+            }}
+          >
+            {isBasketballActive && (
+              <img className="basketball" src={basketSvg} alt="Basketball" />
+            )}
+            {!isBasketballActive && (
+              <img className="soccer" src={soccerSvg} alt="Soccer" />
+            )}
+          </div>
+        </div>
       </label>
     </div>
   );

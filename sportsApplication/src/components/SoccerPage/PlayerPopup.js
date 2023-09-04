@@ -1,17 +1,8 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 
-export function PlayerPopup({ player, togglePopUp }) {
+export function PlayerPopup({ player }) {
   return (
     <div className="PopUp">
-      <Button
-        className="close-button btn btn-secondary"
-        type="button"
-        onClick={togglePopUp}
-        border-radius="45%"
-      >
-        <div>x</div>
-      </Button>
       <h1>Interview information</h1>
       <div>
         <h2>What to expect?</h2>
@@ -35,6 +26,7 @@ export function PlayerPopup({ player, togglePopUp }) {
           </li>
         ))}
       </ul>
+      <div></div>
     </div>
   );
 }

@@ -94,7 +94,7 @@
 .player-container:hover .PopUp {
   display: block;
 }
-
+/* 
 .player-container:nth-child(1) {
   top: 36vh;
   left: 80vw;
@@ -127,4 +127,4 @@
 .player-container:nth-child(8) {
   top: 36vh;
   left: 0vw;
-}
+} */
