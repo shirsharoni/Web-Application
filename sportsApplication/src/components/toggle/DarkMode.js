@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./DarkMode.css";
-import basketSvg from "../../basketball.svg";
-import soccerSvg from "../../soccer.svg";
+// import basketSvg from "/basketball.svg";
+// import soccerSvg from "/soccer.svg";
 
 const DarkMode = ({ onToggleTheme }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -27,15 +27,19 @@ const DarkMode = ({ onToggleTheme }) => {
           <div
             className={`icon ${isBasketballActive ? "left" : "right"}`}
             style={{
-              left: isBasketballActive ? "0" : "53%", // Adjust the left position
+              left: isBasketballActive ? "8" : "62%", // Adjust the left position
               transition: "left 0.19s ease-in-out", // Add a transition
             }}
           >
             {isBasketballActive && (
-              <img className="basketball" src={basketSvg} alt="Basketball" />
+              <img
+                className="basketball"
+                src={"/Layout/basketball.svg"}
+                alt="Basketball"
+              />
             )}
             {!isBasketballActive && (
-              <img className="soccer" src={soccerSvg} alt="Soccer" />
+              <img className="soccer" src={"/Layout/soccer.svg"} alt="Soccer" />
             )}
           </div>
         </div>

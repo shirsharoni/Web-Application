@@ -1,8 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import soccer from "../soccer.svg";
-import basketball from "../basketball.svg";
+
 import "../App.css";
 import { useAppData } from "./ApiData.js";
 import HomeNavbar from "./navbar";
@@ -45,10 +44,14 @@ function App() {
             <Col xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
               <Row xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
                 <div className="mb-2">
-                  <Image src={soccer} className="App-logo" rounded />
+                  <Image
+                    src={"/Layout/soccer.svg"}
+                    className="App-logo"
+                    rounded
+                  />
                   <br />
                   <Button onClick={goToSoccer} bsPrefix="btn" size="sm">
-                    Let's play soccer
+                    My progress
                   </Button>
                 </div>
               </Row>
@@ -56,11 +59,15 @@ function App() {
             <Col xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
               <Row xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
                 <div className="mb-2">
-                  <Image src={basketball} className="App-logo" rounded />
+                  <Image
+                    src={"/Layout/basketball.svg"}
+                    className="App-logo"
+                    rounded
+                  />
                   <br />
-                  <Button onClick={goToBasketball} size="sm">
+                  {/* <Button onClick={goToBasketball} size="sm">
                     Let's play Basketball
-                  </Button>
+                  </Button> */}
                 </div>
               </Row>
             </Col>

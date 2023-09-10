@@ -1,7 +1,5 @@
 // helpers.js
 
-
-
 export function getStepAssignees(step) {
   if (!step || !step.assignees || !Array.isArray(step.assignees)) {
     return ""; // Return an empty string if the input is invalid or no assignees
@@ -10,9 +8,6 @@ export function getStepAssignees(step) {
   const assigneeNames = step.assignees.map(assignee => `${assignee.first_name} ${assignee.last_name}`);
   return assigneeNames.join(", ");
 }
-
-
-
 
 export function formatTime(isoTimeString) {
   const date = new Date(isoTimeString);
