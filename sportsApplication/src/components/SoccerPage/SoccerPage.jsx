@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useAppData } from "../ApiData.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../App.css";
-import "../../AppHamburger.css";
 import "../../PopUp.css";
 import "./SoccerPage.css";
 import HomeNavbar from "../navbar";
