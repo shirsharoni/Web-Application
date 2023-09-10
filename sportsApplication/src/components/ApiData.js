@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import { App } from "./Home.js";
 import "../App.css";
-import "../AppHamburger.css";
 
 export function useAppData() {
   const { id } = useParams();

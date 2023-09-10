@@ -59,6 +59,11 @@
 
 }
 
+.dark_mode{
+  display: flex;
+
+}
+
 /* .horizontal {
   display: flex;
   justify-content: center;

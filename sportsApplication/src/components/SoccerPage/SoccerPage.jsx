@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useAppData } from "../ApiData.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../App.css";
-import "../../AppHamburger.css";
 import "../../PopUp.css";
 import "./SoccerPage.css";
 import HomeNavbar from "../navbar";
@@ -49,11 +48,9 @@ function SoccerPage() {
         <HomeNavbar onToggleTheme={handleToggleTheme} />
         <div className="container container-soccer d-flex flex-column vh-100">
           <div id="h1-soccer">{data.position_name}</div>
-          <div id="h2">
-            {data.first_name} {data.last_name}
-          </div>
+          <div id="h2">{data.first_name} {data.last_name}</div>
 
-          <div className="outer-container">
+          {/* <div className="outer-container"> */}
             <div className="inner-container">
               <div className="scroll-row row1">
                 {data.steps.map((step, index) => (
@@ -64,14 +61,15 @@ function SoccerPage() {
                     >
                       <span className="ball_num">{index + 1}</span>
                     </div>
+                    <div className="step-name">{step.name}</div> {/* Add this line */}
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          {/* </div> */}
 
           {selectedPlayerIndex !== null && (
-            <Container fluid="true" className="container-soccer">
+            <Container fluid="true" className="container-interview">
               <Row>
                 <Col>
                   <div className="interview-info">
@@ -81,7 +79,7 @@ function SoccerPage() {
                       width="30"
                       height="30"
                     />
-                    <span className="step-header">Current Step:</span>{" "}
+                    <span className="step-header">Current Step:</span>
                     {data.steps[selectedPlayerIndex].name} <br />
                     <span className="step-icon">
                       <img
@@ -90,7 +88,7 @@ function SoccerPage() {
                         width="30"
                         height="30"
                       />
-                      <span className="step-header">When?</span>
+                      <span className="step-header">When?</span> 
 
                       {data.steps[selectedPlayerIndex].time_scheduled ? (
                         <div className="text-container">
@@ -122,7 +120,7 @@ function SoccerPage() {
                         height="30"
                       />
                       With whom?
-                    </span>{" "}
+                    </span>
                     {getStepAssignees(data.steps[selectedPlayerIndex])} <br />
                     <div className="where">
                       <span className="step-header">
@@ -133,10 +131,10 @@ function SoccerPage() {
                           height="30"
                         />
                         Where?
-                      </span>{" "}
+                      </span>
                       {data.steps[selectedPlayerIndex].type ===
                         "Phone Interview" && (
-                        <span className="p-interview">Phone call</span>
+                        <span className="p-interview"> Phone call </span>
                       )}
                       {data.steps[selectedPlayerIndex].type ===
                         "Video Interview" && (
