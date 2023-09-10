@@ -2,6 +2,30 @@
   position: relative;
 }
 
+.circular {
+  /* margin: 10px; */
+  /* margin-left: 30px; */
+  width: 70px; /* Set the width and height to control the size of the circle */
+  height: 70px;
+  background-color: white; /* Set the background color for the circle */
+  border-radius: 50%; /* Use border-radius with 50% value for a circle */
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  font-weight: bold;
+  font-size: 25px;
+  border: 2px solid black;
+  transition: opacity 0.3s; /* Add a smooth transition for opacity changes */
+}
+
+.circular.chosen {
+  opacity: 1; /* Full opacity for chosen circles */
+}
+
+.circular.unchosen {
+  opacity: 0.3; /* Lower opacity for unchosen circles */
+}
+
 .soccerPageContainer {
   background-color: #f46f01;
   /* position: relative; */
@@ -10,15 +34,12 @@
   /* width: 100%; */
   /* height: 1000px; */
 }
-
 .soccerPageContainer.light {
   background-color: #f46f01;
 }
-
 .soccerPageContainer.dark {
   background-color: #6db926;
 }
-
 .container-soccer {
   display: flex;
   /* flex-direction: column; */
@@ -50,6 +71,9 @@
   width: inherit;
   justify-content: center;
   height: 170px; /* Fixed height */
+  /* gap: 2rem; */
+  margin-top: 20px;
+  padding: 30px;
   background-color: rgb(240, 238, 238);
   /* background-color: aquamarine; */
   /* gap: 200px; */
@@ -85,20 +109,6 @@ gap: 0.5rem;
 min-width: max-content;
 /* flex-wrap:wrap; */
 /* height: 80px; */
-}
-
-.circular {
-  display: flex;
-  width: 70px; /* Set the width and height to control the size of the circle */
-  height: 70px;
-  background-color: white; /* Set the background color for the circle */
-  border-radius: 50%; /* Use border-radius with 50% value for a circle */
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
-  font-weight: bold;
-  font-size: 25px;
-  font-family: "Open Sans", sans-serif;
-  border: 2px solid black;
 }
 
 .ball_num {
