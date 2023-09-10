@@ -1,11 +1,11 @@
+// HomeNavbar.js
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import DarkMode from "./toggle/DarkMode";
 import "./toggle/DarkMode.css";
 
-function HomeNavbar({ onToggleTheme }) {
+function HomeNavbar({ onToggleTheme, showToggle }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isBasketballActive, setIsBasketballActive] = useState(true);
 
@@ -68,42 +68,43 @@ function HomeNavbar({ onToggleTheme }) {
               </span>
             </Nav.Link>
           </Nav>
-          {/* <DarkMode onToggleTheme={toggleTheme} /> */}
-          <div className={`dark_mode ${isDarkMode ? "lightgreen" : "beige"}`}>
-            <input
-              className="dark_mode_input"
-              type="checkbox"
-              id="darkmode-toggle"
-              checked={isDarkMode}
-              onChange={toggleTheme}
-            />
-            <label className="dark_mode_label" htmlFor="darkmode-toggle">
-              <div className="circle">
-                <div
-                  className={`icon ${isBasketballActive ? "left" : "right"}`}
-                  style={{
-                    left: isBasketballActive ? "8%" : "62%", // Adjust the left position
-                    transition: "left 0.19s ease-in-out", // Add a transition
-                  }}
-                >
-                  {isBasketballActive && (
-                    <img
-                      className="basketball"
-                      src={"/Layout/basketball.svg"}
-                      alt="Basketball"
-                    />
-                  )}
-                  {!isBasketballActive && (
-                    <img
-                      className="soccer"
-                      src={"/Layout/soccer.svg"}
-                      alt="Soccer"
-                    />
-                  )}
+          {showToggle && (
+            <div className={`dark_mode ${isDarkMode ? "lightgreen" : "beige"}`}>
+              <input
+                className="dark_mode_input"
+                type="checkbox"
+                id="darkmode-toggle"
+                checked={isDarkMode}
+                onChange={toggleTheme}
+              />
+              <label className="dark_mode_label" htmlFor="darkmode-toggle">
+                <div className="circle">
+                  <div
+                    className={`icon ${isBasketballActive ? "left" : "right"}`}
+                    style={{
+                      left: isBasketballActive ? "8%" : "62%",
+                      transition: "left 0.19s ease-in-out",
+                    }}
+                  >
+                    {isBasketballActive && (
+                      <img
+                        className="basketball"
+                        src={"/Layout/basketball.svg"}
+                        alt="Basketball"
+                      />
+                    )}
+                    {!isBasketballActive && (
+                      <img
+                        className="soccer"
+                        src={"/Layout/soccer.svg"}
+                        alt="Soccer"
+                      />
+                    )}
+                  </div>
                 </div>
-              </div>
-            </label>
-          </div>
+              </label>
+            </div>
+          )}
         </Container>
       </Navbar>
     </>

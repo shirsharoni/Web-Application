@@ -30,15 +30,12 @@
   position: static;
   font-family: "Lucida Console", "Courier New", monospace;
   z-index: 15;
-  
 }
 
 .MainHeader {
   margin-top: 0px;
   margin-bottom: 60px;
 }
-
-
 
 .App-link {
   color: #61dafb;
@@ -53,10 +50,9 @@
   }
 }
 
-.btn{
-  background-color: #04ABCC;
-  border-color: #04ABCC;
-
+.btn {
+  background-color: #04abcc;
+  border-color: #04abcc;
 }
 
 /* .horizontal {
@@ -99,4 +95,3 @@
   background-repeat: no-repeat;
   overflow: hidden;
 }
-

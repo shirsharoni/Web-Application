@@ -49,10 +49,6 @@ function App() {
                     className="App-logo"
                     rounded
                   />
-                  <br />
-                  <Button onClick={goToSoccer} bsPrefix="btn" size="sm">
-                    My progress
-                  </Button>
                 </div>
               </Row>
             </Col>
@@ -64,14 +60,13 @@ function App() {
                     className="App-logo"
                     rounded
                   />
-                  <br />
-                  {/* <Button onClick={goToBasketball} size="sm">
-                    Let's play Basketball
-                  </Button> */}
                 </div>
               </Row>
             </Col>
           </Row>
+          <Button onClick={goToSoccer} bsPrefix="btn" size="m">
+            My progress
+          </Button>
         </Container>
       </header>
     </div>

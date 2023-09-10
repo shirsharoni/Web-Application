@@ -1,7 +1,6 @@
 #soccer-page {
   position: relative;
 }
-
 .circular {
   /* margin: 10px; */
   /* margin-left: 30px; */
@@ -15,25 +14,33 @@
   font-weight: bold;
   font-size: 25px;
   border: 2px solid black;
-}
-.scroll-row {
-  display: flex;
-  flex-wrap: nowrap; /* Prevent wrapping of columns */
-  overflow-x: auto; /* Enable horizontal scroll */
-  white-space: nowrap; /* Prevent text from wrapping within columns */
+  transition: opacity 0.3s; /* Add a smooth transition for opacity changes */
 }
 
+.circular.chosen {
+  opacity: 1; /* Full opacity for chosen circles */
+}
+
+.circular.unchosen {
+  opacity: 0.3; /* Lower opacity for unchosen circles */
+}
+
+.scroll-row {
+  display: inline-flex;
+  flex-direction: row;
+  /* flex-wrap: nowrap; Prevent wrapping of columns */
+  overflow-x: auto; /*Enable horizontal scroll
+  /* white-space: nowrap; Prevent text from wrapping within columns */
+}
 img {
   margin-right: 10px;
 }
-
 #h1-soccer {
   font-family: "Roboto Slab", serif;
   font-size: 50px;
   text-align: center;
   margin: 20px 0px 20px;
 }
-
 #h2 {
   font-size: 30px;
   font-family: "Open Sans", sans-serif;
@@ -41,37 +48,30 @@ img {
   margin: 0px 0px 20px;
   text-align: center;
 }
-
 .ball_num {
   font-family: "Open Sans", sans-serif;
 }
-
-
-.where{
+.where {
   padding: 0%;
   margin-top: 0px;
   margin: 0px;
-  display:inline-flex;
+  display: inline-flex;
   align-items: center;
 }
 /* .interview_header {
   font-weight: bold;
 } */
-
-
 .step-header {
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
   display: inline-block;
   /* Add any other desired styles for the container */
 }
-
 .text-container {
   display: inline-block;
   vertical-align: middle; /* Adjust as needed to align text vertically with the image */
   margin-left: 10px; /* Adjust the spacing between the image and text */
 }
-
 .btn.btn-link {
   /* Your CSS styles for buttons with both "btn" and "btn-link" classes */
   background-color: whitesmoke;
@@ -79,12 +79,10 @@ img {
   color: #04abcc;
   font-size: large;
 }
-
 #p {
   font-size: 20px;
   padding: 35px 40px 40px;
 }
-
 .soccerPageContainer {
   background-color: #f46f01;
   position: absolute;
@@ -93,34 +91,29 @@ img {
   width: 100%;
   /* height: 100%; */
 }
-
 .soccerPageContainer.light {
   background-color: #f46f01;
 }
-
 .soccerPageContainer.dark {
   background-color: #6db926;
 }
-
 .container-soccer {
   background-color: white;
   padding: 35px 40px 40px;
   max-width: 900px;
   /* height: auto; */
 }
-
 .interview-info {
   align-items: center;
   text-align: center; /* Center the text horizontally */
   line-height: 4; /* Adjust the line height for spacing */
 }
-
 .inner-container {
   display: flex;
   justify-content: center;
   /* gap: 2rem; */
   margin-top: 20px;
-  padding: 30px  ;
+  padding: 30px;
   background-color: rgb(240, 238, 238);
   height: 150px; /* Fixed height
   /* align-items:center; */
@@ -128,26 +121,17 @@ img {
   /* max-width: 800px; */
   /* width: auto; */
 }
-
-.row1{
+.row1 {
   display: flex;
   gap: 4rem;
   justify-content: center;
   flex-wrap: wrap;
-  align-items:center;
-
-
+  align-items: center;
 }
-
-.col1{
-display: flex;
-align-items:center;
-height: 80px;
-}
-
-.inner-container .circular {
-  /* flex-basis: 100px; */
-
+.col1 {
+  display: flex;
+  align-items: center;
+  height: 80px;
 }
 
 .details-container {
@@ -162,19 +146,4 @@ height: 80px;
   color: white;
   border-radius: 15%;
   border: 7px solid white;
-}
-
-.player-container {
-  /* position: fixed; */
-  margin: 10px;
-  width: 200px;
-}
-
-.player-container img {
-  width: auto;
-  height: 200px;
-}
-
-.player-container:hover .PopUp {
-  display: block;
 }
