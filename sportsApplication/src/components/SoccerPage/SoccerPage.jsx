@@ -45,6 +45,7 @@ function SoccerPage() {
       <div className="soccerPageContainer" style={{ backgroundColor }}>
         <HomeNavbar onToggleTheme={handleToggleTheme} showToggle={true} />
         <div className="container container-soccer d-flex flex-column vh-100">
+
           <SoccerPageHeader data={data} />
           <SoccerPageCircles
             data={data}

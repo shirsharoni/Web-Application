@@ -55,6 +55,11 @@
   border-color: #04abcc;
 }
 
+.dark_mode{
+  display: flex;
+
+}
+
 /* .horizontal {
   display: flex;
   justify-content: center;
