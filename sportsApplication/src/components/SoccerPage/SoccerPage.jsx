@@ -66,20 +66,21 @@ function SoccerPage() {
             {data.first_name} {data.last_name}
           </div>
 
-          <Container fluid="true" className="inner-container">
-            <Row>
+          <div className="inner-container">
+            <div className="row1">
               {data.steps.map((step, index) => (
-                <Col key={index}>
+                <div className="col1" key={index}>
                   <div
                     className={`circular`}
                     onClick={() => handleCircleClick(index)}
                   >
                     <span className="ball_num">{index + 1}</span>
                   </div>
-                </Col>
+                </div>
               ))}
-            </Row>
-          </Container>
+            </div>
+          </div>
+          
           {selectedPlayerIndex !== null && (
             <Container fluid="true" className="container-soccer">
               <Row>
@@ -101,8 +102,7 @@ function SoccerPage() {
                         src={require("./clock.png")}
                         width="30"
                         height="30"
-                        // className="d-inline-block align-top"
-                      />
+                      /> <span className="step-header">When?</span>
                       {data.steps[selectedPlayerIndex].time_scheduled ? (
                         <div className="text-container">
                           <span id="p-interview date">
@@ -136,14 +136,13 @@ function SoccerPage() {
                       With whom?
                     </span>{" "}
                     {getStepAssignees(data.steps[selectedPlayerIndex])} <br />
-                    <div className="where" style={{ display: "inline-flex" }}>
+                    <div className="where">
                       <span className="step-header">
                         <img
                           alt=""
                           src={require("./location.png")}
                           width="30"
                           height="30"
-                          // className="d-inline-block"
                         />
                         Where?
                       </span>{" "}
@@ -163,18 +162,10 @@ function SoccerPage() {
                             <a
                               href="https://goo.gl/maps/wGh5ppSvMwv4Vudo8"
                               target="_blank"
-                              style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                position: "absolute",
-                                bottom: "260px", // Adjust the distance from the bottom
-                                right: "850px", // Adjust the distance from the right
-                              }}
                             >
                               <span
                                 style={{
-                                  padding: ".0rem .5rem",
+                                  padding: ".20rem .5rem",
                                   fontSize: "1.75rem",
                                 }}
                               >
@@ -186,19 +177,11 @@ function SoccerPage() {
                             <a
                               href="https://www.waze.com/live-map/directions/il/tel-aviv-district/%D7%A8%D7%92/wsc-sports?to=place.ChIJt0QWvcBLHRURRiGcBtZacYs&from=ll.32.0863353%2C34.8049162&utm_medium=lm_share_directions&utm_campaign=default&utm_source=waze_website"
                               target="_blank"
-                              style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                position: "absolute",
-                                bottom: "257px", // Adjust the distance from the bottom
-                                right: "800px", // Adjust the distance from the right
-                              }}
                             >
                               <span
                                 style={{
                                   padding: ".20rem .5rem",
-                                  fontSize: "1.70rem",
+                                  fontSize: "1.75rem",
                                 }}
                               >
                                 <button type="button" className="btn btn-link">

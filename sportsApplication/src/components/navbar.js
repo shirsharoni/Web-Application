@@ -116,7 +116,7 @@ function HomeNavbar({ onToggleTheme }) {
                 <div
                   className={`icon ${isBasketballActive ? "left" : "right"}`}
                   style={{
-                    left: isBasketballActive ? "0" : "53%", // Adjust the left position
+                    left: isBasketballActive ? "8%" : "62%", // Adjust the left position
                     transition: "left 0.19s ease-in-out", // Add a transition
                   }}
                 >
