@@ -1,6 +1,7 @@
 // HomeNavbar.js
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
+
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./toggle/DarkMode.css";
@@ -17,7 +18,7 @@ function HomeNavbar({ onToggleTheme, showToggle }) {
 
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg="dark" data-bs-theme="dark" sticky="top">
         <Container>
           <Navbar.Brand href="https://wsc-sports.com/" target="_blank">
             <img
