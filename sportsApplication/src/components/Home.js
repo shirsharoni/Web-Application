@@ -17,14 +17,11 @@ document.head.appendChild(fontAwesomeScript);
 function App() {
   const { id } = useParams();
   const { data, error, isLoading } = useAppData();
-  function goToSoccer() {
+  function goToCadidate() {
     console.log("go to soccer");
-    window.location = `/soccer/${id}`;
+    window.location = `/CadidateDetails/${id}`;
   }
-  function goToBasketball() {
-    console.log("go to basketball");
-    window.location = `/basketball/${id}`;
-  }
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -64,7 +61,7 @@ function App() {
               </Row>
             </Col>
           </Row>
-          <Button onClick={goToSoccer} bsPrefix="btn" size="m">
+          <Button onClick={goToCadidate} bsPrefix="btn" size="m">
             My progress
           </Button>
         </Container>

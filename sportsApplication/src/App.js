@@ -11,8 +11,7 @@ import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 const App = () => {
   let routes = useRoutes([
     { path: "/:id", element: <Home /> },
-    { path: "/soccer/:id", element: <SoccerPage /> },
-    { path: "/basketball/:id", element: <BasketballPage /> },
+    { path: "/CadidateDetails/:id", element: <SoccerPage /> },
   ]);
   return routes;
 };
