@@ -2,7 +2,6 @@ import React from "react";
 
 function SoccerPageCircles({ data, selectedPlayerIndex, handleCircleClick }) {
   return (
-    <div className="outer-container">
       <div className="inner-container">
         <div className="scroll-row row1">
           {data.steps.map((step, index) => (
@@ -23,11 +22,11 @@ function SoccerPageCircles({ data, selectedPlayerIndex, handleCircleClick }) {
               >
                 <span className="ball_num">{index + 1}</span>
               </div>
+              <div className="step-name">{step.name}</div> {/* Add this line */}
             </div>
           ))}
         </div>
       </div>
-    </div>
   );
 }
 

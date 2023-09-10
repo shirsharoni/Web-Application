@@ -17,7 +17,7 @@ function HomeNavbar({ onToggleTheme, showToggle }) {
 
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg="dark" data-bs-theme="dark" sticky="top">
         <Container>
           <Navbar.Brand href="https://wsc-sports.com/" target="_blank">
             <img

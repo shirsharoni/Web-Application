@@ -16,7 +16,7 @@ function SoccerPageInfo({ data, selectedPlayerIndex }) {
 
   return (
     selectedPlayerIndex !== null && (
-      <Container fluid className="container-soccer">
+      <Container fluid className="container-interview">
         <Row>
           <Col>
             <div className="interview-info">
