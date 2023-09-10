@@ -1,5 +1,5 @@
 #soccer-page {
-  position: relative; 
+  position: relative;
 }
 
 .circular {
@@ -16,13 +16,19 @@
   font-size: 25px;
   border: 2px solid black;
 }
+.scroll-row {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping of columns */
+  overflow-x: auto; /* Enable horizontal scroll */
+  white-space: nowrap; /* Prevent text from wrapping within columns */
+}
 
-img{
+img {
   margin-right: 10px;
 }
 
 #h1-soccer {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   font-size: 50px;
   text-align: center;
   margin: 20px 0px 20px;
@@ -30,29 +36,18 @@ img{
 
 #h2 {
   font-size: 30px;
-  font-family: 'Open Sans', sans-serif;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto Slab", serif;
   margin: 0px 0px 20px;
   text-align: center;
 }
 
-.ball_num{
-  font-family: 'Open Sans', sans-serif;
+.ball_num {
+  font-family: "Open Sans", sans-serif;
 }
 
-/* .where{
-  padding: 0%;
-  margin-top: 0px;
-  margin: 0px;
-  display:inline-flex;
-  align-items: center;
-} */
-/* .interview_header {
-  font-weight: bold;
-} */
-
 .step-header {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   display: inline-block;
   /* Add any other desired styles for the container */
@@ -68,7 +63,7 @@ img{
   /* Your CSS styles for buttons with both "btn" and "btn-link" classes */
   background-color: whitesmoke;
   border: 1px solid white;
-  color: #04ABCC ;
+  color: #04abcc;
   font-size: large;
 }
 
@@ -77,13 +72,13 @@ img{
   padding: 35px 40px 40px;
 }
 
-
 .soccerPageContainer {
   background-color: #f46f01;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  /* height: 100%; */
 }
 
 .soccerPageContainer.light {
@@ -98,10 +93,11 @@ img{
   background-color: white;
   padding: 35px 40px 40px;
   max-width: 900px;
+  /* height: auto; */
 }
 
-.interview-info{
-  align-items:center;
+.interview-info {
+  align-items: center;
   text-align: center; /* Center the text horizontally */
   line-height: 4; /* Adjust the line height for spacing */
 }
@@ -143,37 +139,3 @@ img{
 .player-container:hover .PopUp {
   display: block;
 }
-/* 
-.player-container:nth-child(1) {
-  top: 36vh;
-  left: 80vw;
-}
-
-.player-container:nth-child(2) {
-  top: 36vh;
-  left: 65vw;
-}
-.player-container:nth-child(3) {
-  top: 36vh;
-  left: 50vw;
-}
-.player-container:nth-child(4) {
-  top: 37vh;
-  left: 35vw;
-}
-.player-container:nth-child(5) {
-  top: 36vh;
-  left: 22vw;
-}
-.player-container:nth-child(6) {
-  top: 36vh;
-  left: 10vw;
-}
-.player-container:nth-child(7) {
-  top: 36vh;
-  left: 5vw;
-}
-.player-container:nth-child(8) {
-  top: 36vh;
-  left: 0vw;
-} */

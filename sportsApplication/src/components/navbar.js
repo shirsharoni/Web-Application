@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import DarkMode from "./toggle/DarkMode";
+// import DarkMode from "./toggle/DarkMode";
 import "./toggle/DarkMode.css";
-
-import basketSvg from "../basketball.svg";
-import soccerSvg from "../soccer.svg";
 
 function HomeNavbar({ onToggleTheme }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -21,42 +18,11 @@ function HomeNavbar({ onToggleTheme }) {
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
-        {/* <div className={`dark_mode ${isDarkMode ? "lightgreen" : "beige"}`}>
-          <input
-            className="dark_mode_input"
-            type="checkbox"
-            id="darkmode-toggle"
-            checked={isDarkMode}
-            onChange={toggleTheme}
-          />
-          <label className="dark_mode_label" htmlFor="darkmode-toggle">
-            <div className="circle">
-              <div
-                className={`icon ${isBasketballActive ? "left" : "right"}`}
-                style={{
-                  left: isBasketballActive ? "0" : "53%", // Adjust the left position
-                  transition: "left 0.19s ease-in-out", // Add a transition
-                }}
-              >
-                {isBasketballActive && (
-                  <img
-                    className="basketball"
-                    src={basketSvg}
-                    alt="Basketball"
-                  />
-                )}
-                {!isBasketballActive && (
-                  <img className="soccer" src={soccerSvg} alt="Soccer" />
-                )}
-              </div>
-            </div>
-          </label>
-        </div> */}
         <Container>
           <Navbar.Brand href="https://wsc-sports.com/" target="_blank">
             <img
               alt=""
-              src="/logo.png"
+              src="/Layout/logo.png"
               width="30"
               height="30"
               className="d-inline-block align-top"
@@ -116,19 +82,23 @@ function HomeNavbar({ onToggleTheme }) {
                 <div
                   className={`icon ${isBasketballActive ? "left" : "right"}`}
                   style={{
-                    left: isBasketballActive ? "0" : "53%", // Adjust the left position
+                    left: isBasketballActive ? "8%" : "62%", // Adjust the left position
                     transition: "left 0.19s ease-in-out", // Add a transition
                   }}
                 >
                   {isBasketballActive && (
                     <img
                       className="basketball"
-                      src={basketSvg}
+                      src={"/Layout/basketball.svg"}
                       alt="Basketball"
                     />
                   )}
                   {!isBasketballActive && (
-                    <img className="soccer" src={soccerSvg} alt="Soccer" />
+                    <img
+                      className="soccer"
+                      src={"/Layout/soccer.svg"}
+                      alt="Soccer"
+                    />
                   )}
                 </div>
               </div>

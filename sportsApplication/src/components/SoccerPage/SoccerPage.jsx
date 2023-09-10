@@ -39,19 +39,6 @@ function SoccerPage() {
     setSelectedPlayerIndex(currentIndex);
   }
 
-  // function generateCirclesWithSteps(steps) {
-  //   return steps.map((step, index) => (
-  //     <Col key={index}>
-  //       <div
-  //         className={`circular`}
-  //         onClick={() => handleCircleClick(index)}
-  //       >
-  //         <span className="ball_num">{index + 1}</span>
-  //       </div>
-  //     </Col>
-  //   ));
-  // }
-
   function handleCircleClick(index) {
     setSelectedPlayerIndex(index); // Update selected player index when a circle is clicked
   }
@@ -66,20 +53,23 @@ function SoccerPage() {
             {data.first_name} {data.last_name}
           </div>
 
-          <Container fluid="true" className="inner-container">
-            <Row>
-              {data.steps.map((step, index) => (
-                <Col key={index}>
-                  <div
-                    className={`circular`}
-                    onClick={() => handleCircleClick(index)}
-                  >
-                    <span className="ball_num">{index + 1}</span>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          </Container>
+          <div className="outer-container">
+            <Container fluid={true} className="inner-container">
+              <Row className="scroll-row">
+                {data.steps.map((step, index) => (
+                  <Col key={index}>
+                    <div
+                      className={`circular`}
+                      onClick={() => handleCircleClick(index)}
+                    >
+                      <span className="ball_num">{index + 1}</span>
+                    </div>
+                  </Col>
+                ))}
+              </Row>
+            </Container>
+          </div>
+
           {selectedPlayerIndex !== null && (
             <Container fluid="true" className="container-soccer">
               <Row>
@@ -87,21 +77,18 @@ function SoccerPage() {
                   <div className="interview-info">
                     <img
                       alt=""
-                      src={require("./footsteps.png")}
+                      src={"/Layout/footsteps.png"}
                       width="30"
                       height="30"
-                      // className="d-inline-block vertical-align"
-                      // style={{ verticalAlign: 'middle' }}
                     />
                     <span className="step-header">Current Step:</span>{" "}
                     {data.steps[selectedPlayerIndex].name} <br />
                     <span className="step-icon">
                       <img
                         alt=""
-                        src={require("./clock.png")}
+                        src={"/Layout/clock.png"}
                         width="30"
                         height="30"
-                        // className="d-inline-block align-top"
                       />
                       {data.steps[selectedPlayerIndex].time_scheduled ? (
                         <div className="text-container">
@@ -128,10 +115,9 @@ function SoccerPage() {
                     <span className="step-header">
                       <img
                         alt=""
-                        src={require("./interview.png")}
+                        src={"/Layout/interview.png"}
                         width="30"
                         height="30"
-                        // className="d-inline-block align-top"
                       />
                       With whom?
                     </span>{" "}
@@ -140,10 +126,9 @@ function SoccerPage() {
                       <span className="step-header">
                         <img
                           alt=""
-                          src={require("./location.png")}
+                          src={"/Layout/location.png"}
                           width="30"
                           height="30"
-                          // className="d-inline-block"
                         />
                         Where?
                       </span>{" "}
@@ -168,8 +153,8 @@ function SoccerPage() {
                                 flexDirection: "column",
                                 alignItems: "center",
                                 position: "absolute",
-                                bottom: "260px", // Adjust the distance from the bottom
-                                right: "850px", // Adjust the distance from the right
+                                bottom: "40px", // Adjust the distance from the bottom
+                                right: "650px", // Adjust the distance from the right
                               }}
                             >
                               <span
@@ -191,8 +176,8 @@ function SoccerPage() {
                                 flexDirection: "column",
                                 alignItems: "center",
                                 position: "absolute",
-                                bottom: "257px", // Adjust the distance from the bottom
-                                right: "800px", // Adjust the distance from the right
+                                bottom: "39px", // Adjust the distance from the bottom
+                                right: "600px", // Adjust the distance from the right
                               }}
                             >
                               <span
