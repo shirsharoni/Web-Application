@@ -1,9 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Home from "./components/Home";
-import SoccerPage from "./components/SoccerPage/SoccerPage";
-import BasketballPage from "./components/BasketballPage";
+import Home from "./components/HomePage/Home";
+import CadidatePage from "./components/CandidatePage/CandidatePage";
 import "./components/ApiData.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, useRoutes } from "react-router-dom";
@@ -11,7 +10,7 @@ import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 const App = () => {
   let routes = useRoutes([
     { path: "/:id", element: <Home /> },
-    { path: "/CadidateDetails/:id", element: <SoccerPage /> },
+    { path: "/CadidateDetails/:id", element: <CadidatePage /> },
   ]);
   return routes;
 };

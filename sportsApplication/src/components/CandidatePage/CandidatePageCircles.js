@@ -1,6 +1,10 @@
 import React from "react";
 
-function SoccerPageCircles({ data, selectedPlayerIndex, handleCircleClick }) {
+function CandidatePageCircles({
+  data,
+  selectedPlayerIndex,
+  handleCircleClick,
+}) {
   return (
     <div className="inner-container">
       <div className="scroll-row row1">
@@ -30,4 +34,4 @@ function SoccerPageCircles({ data, selectedPlayerIndex, handleCircleClick }) {
   );
 }
 
-export default SoccerPageCircles;
+export default CandidatePageCircles;

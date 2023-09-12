@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { App } from "./Home.js";
-import "../App.css";
+import "../components/HomePage/App.css";
 
 export function useAppData() {
   const { id } = useParams();

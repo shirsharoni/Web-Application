@@ -1,15 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../App.css";
-import "../../PopUp.css";
-import "./SoccerPage.css";
-import HomeNavbar from "../navbar";
+import "../HomePage/App.css";
+import "./CandidatePage.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { getStepAssignees } from "./helpers";
 
-function SoccerPageInfo({ data, selectedPlayerIndex }) {
+function CandidatePageInfo({ data, selectedPlayerIndex }) {
   const currentStep = data.steps[selectedPlayerIndex];
   const isPhoneInterview = currentStep.type === "Phone Interview";
   const isVideoInterview = currentStep.type === "Video Interview";
@@ -112,4 +110,4 @@ function SoccerPageInfo({ data, selectedPlayerIndex }) {
   );
 }
 
-export default SoccerPageInfo;
+export default CandidatePageInfo;

@@ -33,34 +33,34 @@
 }
 
 .soccerPageContainer.light {
-  background-color: #f46f01;  
+  background-color: #f46f01;
 }
 .soccerPageContainer.dark {
   background-color: #6db926;
 }
 
-.soccerPageContainer-inner{
-  display:flex;
-  margin: 0px;
-  justify-content: center; 
-}
-
-.basketball-field-left{
-  width: 100%;
-  display: flex; 
+.soccerPageContainer-inner {
+  display: inline-flex;
+  width: inherit;
+  min-height: 100vh;
+  align-items: center;
   justify-content: center;
-  align-items: center;   
 }
 
-.basketball-field-right{
-  width: 100%;
-  display: flex; 
-  justify-content: center; 
-  align-items: center;   
+.basketball-field-left {
+  display: flex;
+  justify-content: center;
+  width: 100vh;
+}
+
+.basketball-field-right {
+  display: flex;
+  justify-content: center;
+  width: 100vh;
 }
 
 .container-soccer {
-  /* flex: 1; */
+  flex: 1;
   gap: 1rem;
   background-color: white;
   max-width: 900px;
@@ -68,7 +68,6 @@
   margin-left: 0px;
   margin-right: auto;
   margin-left: auto;
-
 }
 
 #h1-soccer {
@@ -99,8 +98,9 @@
 .row1 {
   display: flex;
   gap: 20px;
+  flex-wrap: nowrap;
   align-items: center;
-  margin: 15px ;
+  margin: 15px;
 }
 
 .scroll-row {
@@ -116,8 +116,6 @@
   align-items: center;
   gap: 0.5rem;
   min-width: max-content;
-  /* flex-wrap:wrap; */
-  /* height: 80px; */
 }
 
 .ball_num {
@@ -148,7 +146,6 @@ img {
 .step-header {
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
-  /* display: inline-block; */
   margin-right: 5px;
 }
 
@@ -175,4 +172,3 @@ img {
   vertical-align: middle; /* Adjust as needed to align text vertically with the image */
   margin-left: 10px; /* Adjust the spacing between the image and text */
 }
-

@@ -1,6 +1,6 @@
 import React from "react";
 
-function SoccerPageHeader({ data }) {
+function CandidatePageHeader({ data }) {
   return (
     <div>
       <div id="h1-soccer">{data.position_name}</div>
@@ -11,4 +11,4 @@ function SoccerPageHeader({ data }) {
   );
 }
 
-export default SoccerPageHeader;
+export default CandidatePageHeader;

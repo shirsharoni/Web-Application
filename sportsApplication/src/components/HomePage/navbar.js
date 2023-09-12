@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import "./toggle/DarkMode.css";
+import "../toggle/toggle.css";
 
 function HomeNavbar({ onToggleTheme, showToggle }) {
   const [isDarkMode, setIsDarkMode] = useState(false);

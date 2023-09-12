@@ -1,9 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import "../App.css";
-import { useAppData } from "./ApiData.js";
+import "./App.css";
+import { useAppData } from "../ApiData.js";
 import HomeNavbar from "./navbar";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
