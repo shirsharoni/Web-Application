@@ -55,48 +55,6 @@
   border-color: #04abcc;
 }
 
-.dark_mode{
+.dark_mode {
   display: flex;
-
-}
-
-/* .horizontal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-} */
-
-/* .vertical {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px;
-} */
-
-.soccer-field {
-  height: 100%;
-  /* width: 100%; */
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  /*מפה הוספתי*/
-  position: absolute; /* Position this element absolutely within the container */
-  top: 0; /* Adjust the top position as needed */
-  left: 0; /* Adjust the left position as needed */
-}
-
-.basketball-field {
-  height: 100%;
-  /* width: 100%; */
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
 }

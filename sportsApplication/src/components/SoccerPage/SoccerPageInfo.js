@@ -21,7 +21,7 @@ function SoccerPageInfo({ data, selectedPlayerIndex }) {
           <Col>
             <div className="interview-info">
               <img alt="" src="/Layout/footsteps.png" width="30" height="30" />
-              <span className="step-header">Current Step:</span>{" "}
+              <span className="step-header">Step details:</span>{" "}
               {currentStep.name} <br />
               <span className="step-icon">
                 <img alt="" src="/Layout/clock.png" width="30" height="30" />
@@ -45,7 +45,7 @@ function SoccerPageInfo({ data, selectedPlayerIndex }) {
                     </span>
                   </div>
                 ) : (
-                  <span className="p-interview">Not scheduled yet</span>
+                  <span className="p-interview"> Not scheduled yet</span>
                 )}
               </span>
               <br />
@@ -70,7 +70,9 @@ function SoccerPageInfo({ data, selectedPlayerIndex }) {
                   Where?
                 </span>{" "}
                 {isPhoneInterview && (
-                  <span className="p-interview">Phone call</span>
+                  <span className="p-interview" style={{ padding: "5px" }}>
+                    Phone call
+                  </span>
                 )}
                 {isVideoInterview && <span className="p-interview">Zoom</span>}
                 {!isPhoneInterview && !isVideoInterview && (
