@@ -16,13 +16,19 @@ import SoccerPageHeader from "./SoccerPageHeader";
 import SoccerPageCircles from "./SoccerPageCircles";
 import SoccerPageInfo from "./SoccerPageInfo";
 
+
+
+
 function SoccerPage() {
   const { id } = useParams();
   const { data, error, isLoading } = useAppData(id);
   const [selectedPlayerIndex, setSelectedPlayerIndex] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState("#F46F01");
+  const [isDarkMode, setIsDarkMode] = useState(false); // Define isDarkMode state
+
   const handleToggleTheme = (isDarkMode) => {
     setBackgroundColor(isDarkMode ? "#6DB926" : "#F46F01");
+    setIsDarkMode(isDarkMode); // Update isDarkMode state
   };
   if (isLoading) {
     return <div>Loading...</div>;
@@ -44,13 +50,26 @@ function SoccerPage() {
     <>
       <div className="soccerPageContainer" style={{ backgroundColor }}>
         <HomeNavbar onToggleTheme={handleToggleTheme} showToggle={true} />
-        {/* <img className="basketball-field"
-          alt=""
-          src="/Layout/basketball.jpeg"
-          width="70"
-          height="70"
-        /> */}
+        <div className="soccerPageContainer-inner"> 
+        <div className="basketball-field-left">
+          {isDarkMode ?          
+          <img className="SF-R"
+           alt=""
+           src="/Layout/soccerF.png"
+           width="170"
+           height="170"
+         />: (
+         <img className="BF-L"
+           alt=""
+           src="/Layout/basketballF.png"
+           width="170"
+           height="170"
+         /> 
+          )}
+         </div>
+
         <div className="container container-soccer d-flex flex-column vh-100">
+
 
           <SoccerPageHeader data={data} />
           <SoccerPageCircles
@@ -62,6 +81,23 @@ function SoccerPage() {
             data={data}
             selectedPlayerIndex={selectedPlayerIndex}
           />
+        </div>
+        <div className="basketball-field-right">
+        {isDarkMode ?          
+        <img className="SF-R"
+           alt=""
+           src="/Layout/soccerF.png"
+           width="170"
+           height="170"
+         />: (
+         <img className="BF-R"
+           alt=""
+           src="/Layout/basketballF.png"
+           width="170"
+           height="170"
+         /> 
+          )}
+         </div>
         </div>
       </div>
     </>

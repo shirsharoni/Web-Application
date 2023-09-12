@@ -38,15 +38,36 @@
 }
 
 .soccerPageContainer.light {
-  background-color: #f46f01;
+  background-color: #f46f01;  
 }
 .soccerPageContainer.dark {
   background-color: #6db926;
 }
 
-.basketball-field{
-  position:absolute;
-  width: 100px;
+.soccerPageContainer-inner{
+  display:inline-flex;
+  width: inherit;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  /* flex-wrap: nowrap; */
+}
+
+.basketball-field-left{
+  /* background-color: #04abcc; */
+  display: flex;
+  justify-content: center;
+  /* align-items: center;  */
+  width: 100vh; 
+}
+
+.basketball-field-right{
+  /* background-color: #04abcc; */
+  display: flex;
+  justify-content: center;
+  /* align-items: center;  */
+  width: 100vh;
+  
 }
 
 .container-soccer {
@@ -54,6 +75,10 @@
   gap: 1rem;
   background-color: white;
   max-width: 900px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
  /* max-height: 100vh; */
   /* overflow-x: hidden;  */
 
