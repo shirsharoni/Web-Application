@@ -44,6 +44,12 @@ function SoccerPage() {
     <>
       <div className="soccerPageContainer" style={{ backgroundColor }}>
         <HomeNavbar onToggleTheme={handleToggleTheme} showToggle={true} />
+        {/* <img className="basketball-field"
+          alt=""
+          src="/Layout/basketball.jpeg"
+          width="70"
+          height="70"
+        /> */}
         <div className="container container-soccer d-flex flex-column vh-100">
 
           <SoccerPageHeader data={data} />

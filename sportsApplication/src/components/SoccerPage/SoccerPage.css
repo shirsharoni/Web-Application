@@ -3,8 +3,6 @@
 }
 
 .circular {
-  /* margin: 10px; */
-  /* margin-left: 30px; */
   width: 70px; /* Set the width and height to control the size of the circle */
   height: 70px;
   background-color: white; /* Set the background color for the circle */
@@ -31,12 +29,11 @@
   flex-direction: column;
   background-color: #f46f01;
   min-height: 100vh;
-  margin-bottom: 0%;
-  /* position: relative; */
-  /* top: 0; */
-  /* left: 0; */
-  /* width: 100%; */
-  /* height: 200vh; */
+  /* margin-bottom: 0%; */
+  /* flex-basis: 100%; */
+  /* height: 100vh; */
+  /* max-width: 200px; */
+
 }
 .soccerPageContainer.light {
   background-color: #f46f01;
@@ -45,14 +42,20 @@
   background-color: #6db926;
 }
 
+.basketball-field{
+  position:absolute;
+  width: 100px;
+}
+
 .container-soccer {
-  display: flex;
+  flex: 1;
   gap: 1rem;
   /* justify-content: center; */
   /* align-items: center; */
   background-color: white;
   max-width: 900px;
-  min-height: 100vh; 
+ /* max-height: 100vh; */
+  /* overflow-x: hidden;  */
 }
 
 #h1-soccer {
@@ -78,8 +81,8 @@
   /* gap: 2rem; */
   margin-top: 20px;
   padding: 30px;
-  background-color: rgb(240, 238, 238);
-  /* background-color: aquamarine; */
+  /* background-color: rgb(240, 238, 238); */
+  background-color: aquamarine;
   /* gap: 200px; */
   /* margin-top: 20px; */
   /* padding: 0px 0px  ; */
