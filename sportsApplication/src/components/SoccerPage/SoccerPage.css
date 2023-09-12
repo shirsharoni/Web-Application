@@ -30,11 +30,6 @@
   flex-direction: column;
   background-color: #f46f01;
   min-height: 100vh;
-  /* margin-bottom: 0%; */
-  /* flex-basis: 100%; */
-  /* height: 100vh; */
-  /* max-width: 200px; */
-  /* min-height: 100vh; */
 }
 
 .soccerPageContainer.light {
@@ -45,33 +40,27 @@
 }
 
 .soccerPageContainer-inner{
-  display:inline-flex;
-  width: inherit;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  /* flex-wrap: nowrap; */
+  display:flex;
+  margin: 0px;
+  justify-content: center; 
 }
 
 .basketball-field-left{
-  /* background-color: #04abcc; */
-  display: flex;
+  width: 100%;
+  display: flex; 
   justify-content: center;
-  /* align-items: center;  */
-  width: 100vh; 
+  align-items: center;   
 }
 
 .basketball-field-right{
-  /* background-color: #04abcc; */
-  display: flex;
-  justify-content: center;
-  /* align-items: center;  */
-  width: 100vh;
-  
+  width: 100%;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;   
 }
 
 .container-soccer {
-  flex: 1;
+  /* flex: 1; */
   gap: 1rem;
   background-color: white;
   max-width: 900px;
@@ -79,8 +68,6 @@
   margin-left: 0px;
   margin-right: auto;
   margin-left: auto;
- /* max-height: 100vh; */
-  /* overflow-x: hidden;  */
 
 }
 
@@ -104,25 +91,16 @@
   width: inherit;
   justify-content: center;
   height: 170px; /* Fixed height */
-  /* gap: 2rem; */
   margin-top: 20px;
-  /* padding: 30px; */
   background-color: rgb(240, 238, 238);
-  /* gap: 200px; */
-  /* padding: 0px 0px  ; */
   align-items: center;
-
-  /* flex-wrap:wrap-reverse; */
-  /* max-width: 800px; */
-  /* position: static; */
 }
 
 .row1 {
   display: flex;
   gap: 20px;
-  flex-wrap: nowrap;
   align-items: center;
-  margin: 15px 50px;
+  margin: 15px ;
 }
 
 .scroll-row {
@@ -198,31 +176,3 @@ img {
   margin-left: 10px; /* Adjust the spacing between the image and text */
 }
 
-/* .details-container {
-  z-index: 10;
-  background-color: #5fc7de;
-  width: 600px;
-  height: 600px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  border-radius: 15%;
-  border: 7px solid white;
-} */
-
-/* .player-container {
-  position: fixed;
-  margin: 10px;
-  width: 200px;
-}
-
-.player-container img {
-  width: auto;
-  height: 200px;
-}
-
-.player-container:hover .PopUp {
-  display: block;
-} */

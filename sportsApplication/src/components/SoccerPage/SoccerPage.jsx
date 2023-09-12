@@ -17,8 +17,6 @@ import SoccerPageCircles from "./SoccerPageCircles";
 import SoccerPageInfo from "./SoccerPageInfo";
 
 
-
-
 function SoccerPage() {
   const { id } = useParams();
   const { data, error, isLoading } = useAppData(id);
@@ -82,6 +80,7 @@ function SoccerPage() {
             selectedPlayerIndex={selectedPlayerIndex}
           />
         </div>
+ 
         <div className="basketball-field-right">
         {isDarkMode ?          
         <img className="SF-R"
